@@ -7,7 +7,7 @@ import Features from '../components/features';
 import Voice from '@react-native-voice/voice';
 import { apiCall } from '../api/OpenAI';
 import Tts from 'react-native-tts';
-import { dummyMessages } from '../constants';
+
 
 export default function Home() {
   const [messages, setMessages] = useState([]);
@@ -20,11 +20,11 @@ export default function Home() {
 
   const clear = () => {
     setMessages([]);
-    Tts.stop();
+    
   };
 
   const stopSpeaking = () => {
-    Tts.stop();
+    
     setSpeaking(false);
   };
 
@@ -70,6 +70,7 @@ export default function Home() {
 
   const startRecording = async () => {
     
+    
     try {
       const granted = await PermissionsAndroid.request(
         PermissionsAndroid.PERMISSIONS.RECORD_AUDIO
@@ -77,7 +78,7 @@ export default function Home() {
 
       if (granted === PermissionsAndroid.RESULTS.GRANTED) {
         setRecording(true);
-        Tts.stop();
+       
         if (Voice.isAvailable()) {
           await Voice.start('en-GB');
         } else {

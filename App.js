@@ -14,7 +14,9 @@ const Stack = createNativeStackNavigator();
 
 
 const App = () => {
- 
+  useEffect(() => {
+    apiCall('what is reactnative', []); // Pass an empty array of messages for initialization
+  }, []);
   return (
     <NavigationContainer>
       <Stack.Navigator screenOptions= {{headerShown:false}} initialRouteName='Welcome' >

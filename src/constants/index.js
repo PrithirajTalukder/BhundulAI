@@ -1,5 +1,5 @@
 
-export const apiKey = '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';
+export const apiKey = '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';
 
 
 
