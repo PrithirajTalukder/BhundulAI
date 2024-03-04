@@ -26,16 +26,15 @@ export const apiCall = async (prompt, messages) => {
           }],
         });
 
-        //console.log('data: ', res.data.choices[0].message);
         let isArt = res.data?.choices[0]?.message?.content;
-        if(isArt.toLowerCase().includes('yes')){
+        if (isArt.toLowerCase().includes('yes') || isArt.toLowerCase().includes('image')) {
             console.log('dalle api call');
             return dalleApiCall(prompt, messages || []);
-
-        }else{
+        } else {
             console.log('chatgpt api call');
             return chatgptApiCall(prompt, messages || []);
         }
+        
         
       } catch (err) {
         console.log('error: ', err);

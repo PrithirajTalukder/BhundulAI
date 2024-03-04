@@ -20,10 +20,12 @@ export default function Home() {
 
   const clear = () => {
     setMessages([]);
+    Tts.stop();
     
   };
 
   const stopSpeaking = () => {
+    Tts.stop();
     
     setSpeaking(false);
   };
@@ -69,7 +71,7 @@ export default function Home() {
   };
 
   const startRecording = async () => {
-    
+    Tts.stop();
     
     try {
       const granted = await PermissionsAndroid.request(
